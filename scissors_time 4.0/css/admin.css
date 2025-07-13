@@ -1,0 +1,227 @@
+
+/* Admin Section */
+.admin-section {
+    padding: 140px 0 80px;
+    background-color: var(--light-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 70%);
+    z-index: 0;
+}
+
+/* Tabs */
+.admin-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: var(--light-gray-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Table */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 1rem;
+    text-align: right;
+    border-bottom: 1px solid var(--light-gray-color);
+}
+
+.admin-table th {
+    background-color: var(--light-color);
+    font-weight: 700;
+}
+
+.admin-table select,
+.admin-table button {
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+}
+
+/* Inventory Input */
+.inventory-input {
+    width: 60px;
+    padding: 0.5rem;
+    border: 1px solid var(--light-gray-color);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.inventory-input.low-inventory {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Form */
+.admin-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--light-gray-color);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    overflow-y: auto; /* Allow scrolling if modal content exceeds viewport */
+}
+
+.modal-overlay.active {
+    opacity: 1;
+}
+
+.product-modal {
+    background-color: white;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh; /* Limit modal height to 90% of viewport height */
+    padding: 2rem;
+    position: relative;
+    overflow-y: auto; /* Enable vertical scrolling */
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    box-shadow: var(--box-shadow);
+}
+
+.modal-overlay.active .product-modal {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.btn-error {
+    background-color: var(--error-color);
+    color: rgb(145, 15, 15);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .admin-section {
+        padding: 120px 0 60px;
+    }
+
+    .admin-tabs {
+        flex-wrap: wrap;
+    }
+
+    .admin-table {
+        font-size: 0.875rem;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 0.75rem;
+    }
+
+    .product-modal {
+        width: 95%;
+        max-height: 85vh; /* Slightly smaller max height for smaller screens */
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .admin-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .product-modal {
+        width: 98%;
+        max-height: 80vh; /* Further reduce max height for very small screens */
+        padding: 1rem;
+    }
+}

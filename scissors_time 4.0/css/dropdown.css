@@ -1,0 +1,29 @@
+/* קובץ אחראי על תפריט פרופיל נפתח */
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.user-dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  right: 0;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.user-dropdown:hover .dropdown-content {
+  display: block;
+}
+.user-dropdown .dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  text-align: right;
+  color: #000;
+  text-decoration: none;
+}
+.user-dropdown .dropdown-content a:hover {
+  background-color: #f0f0f0;
+}

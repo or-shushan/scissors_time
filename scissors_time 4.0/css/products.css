@@ -1,0 +1,452 @@
+/* =========== Products Hero =========== */
+.products-hero {
+  background-color: var(--light-color);
+  padding: 140px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.products-hero::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 70%);
+  z-index: 0;
+}
+
+/* =========== Products Filter =========== */
+.products-filter {
+  padding-top: 0;
+  padding-bottom: 2rem;
+}
+
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  border: 1px solid var(--light-gray-color);
+  border-radius: 9999px;
+  background-color: white;
+  transition: var(--transition);
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.search-box i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-color);
+}
+
+/* Category Filters */
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* =========== Products Grid =========== */
+.products-grid {
+  padding-top: 0;
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 מוצרים בשורה */
+  gap: 2rem;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  width: 100%; /* תופס את כל רוחב העמודה */
+  min-height: 300px; /* גובה מינימלי קבוע לכרטיסייה */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 2px solid #e0e0e0; /* מסגרת לכרטיסייה */
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  height: 200px; /* גובה קבוע לתמונה */
+  width: 100%; /* תופס את כל רוחב הכרטיסייה */
+  display: flex; /* קונטיינר Flex למרכוז התמונה */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background-color: #ffffff; /* רקע לבן להתאמה לרקע התמונות */
+}
+
+.product-image .placeholder-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* שומר על יחס התמונה מבלי לחתוך */
+  position: relative;
+  background-color: #ffffff; /* רקע לבן להתאמה לרקע התמונות */
+}
+.product-actions { /* מה קורה כאשר נמצאים על הכרטייסיה של כל מוצר*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--transition);
+}
+
+.product-image:hover .product-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* עיצוב שורת המחיר + הכפתור */
+.product-price-action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* מצמיד הכל לשמאל */
+  gap: 1rem; /* ריווח בין המחיר לכפתור */
+}
+
+/* עיצוב הכפתור "הוסף לעגלה" */
+.btn-add-cart {
+  background-color: var(--primary-color);
+  color: white;
+  width: 120px;        /* רוחב קבוע */
+  height: 40px;        /* גובה קבוע */
+  font-size: 0.95rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-add-cart:hover {
+  background-color: var(--secondary-color); /* כהה יותר כשעוברים עם העכבר */
+}
+
+
+
+.product-info {
+  padding: 1.5rem;
+  flex-grow: 1; /* מאפשר ל-product-info למלא את המרחב הנותר */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-rating span {
+  color: var(--gray-color);
+  margin-left: 0.25rem;
+}
+
+.product-title {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-desc {
+  color: var(--gray-color);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  display: box;
+  -webkit-line-clamp: 2; /* כמות השורות שיוצגו בכרטיס המוצר */
+  line-clamp: 3; /* כמות השורות שיוצגו בכרטיס המוצר */
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-price-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-price {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.products-more {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* =========== Benefits Section =========== */
+.benefits-section {
+  background-color: var(--light-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.benefits-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, rgba(59, 130, 246, 0) 70%);
+  z-index: 0;
+}
+
+.benefits-section::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.05) 0%, rgba(239, 68, 68, 0) 70%);
+  z-index: 0;
+}
+
+.benefits-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.benefit-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-icon {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.75rem;
+  color: var(--primary-color);
+}
+
+.benefit-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.benefit-card p {
+  color: var(--gray-color);
+}
+
+/* =========== Media Queries =========== */
+@media (max-width: 1200px) {
+  .products-container {
+      grid-template-columns: repeat(3, 1fr); /* 3 מוצרים בשורה במסכים בינוניים */
+  }
+}
+
+@media (max-width: 992px) {
+  .filter-container {
+      flex-direction: column;
+      align-items: stretch;
+  }
+  
+  .search-box {
+      width: 100%;
+  }
+  
+  .category-filters {
+      justify-content: center;
+  }
+  
+  .products-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 מוצרים בשורה בטאבלטים */
+  }
+}
+
+@media (max-width: 768px) {
+  .products-hero {
+      padding: 120px 0 60px;
+  }
+  
+  .products-container {
+      grid-template-columns: repeat(1, 1fr); /* מוצר אחד בשורה במובייל */
+  }
+}
+
+@media (max-width: 576px) {
+  .benefits-container {
+      grid-template-columns: 1fr;
+  }
+  
+  .product-card {
+      width: 100%;
+      min-height: 400px; /* גובה מעט קטן יותר למובייל */
+  }
+  
+  .product-image {
+      height: 180px; /* התאמת גובה התמונה למובייל */
+  }
+}
+
+/* 1. חלונית צפייה מהירה קופצת למרכז */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.modal-image {
+  height: 200px;
+  object-fit: contain;
+}
+
+.product-modal {
+  background-color: #fff;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  padding: 2rem;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+}
+
+/* 2. כמות עם + ו - */
+.qty-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.qty-btn {
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.qty-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.qty-value {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.25rem;
+  font-weight: bold;
+}
+
+/* 3. כפתור "הוסף לעגלה" כחול */
+.btn-add-cart, .modal-details .btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btn-add-cart:hover, .modal-details .btn-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+/* 4. עיגול כחול סביב אייקון העין */
+.quick-view-btn {
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quick-view-btn:hover {
+  background-color: var(--secondary-color);
+}

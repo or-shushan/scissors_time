@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עמוד מנהל - SCISSORS TIME</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container1">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">SCISSORS <span class="fas fa-scissors"></span> TIME</a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="about.html">אודות</a></li>
+                        <li><a href="index.html">דף הבית</a></li>
+                        <li><a href="appointments.html">הזמן תור</a></li>
+                        <li><a href="products.html">מוצרים</a></li>
+                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline">התחברות</a>
+                    <a href="register.html" class="btn btn-primary">הרשמה</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Section -->
+    <section class="admin-section">
+        <div class="container">
+            <div class="section-header">
+                <h1>עמוד מנהל <span class="fas fa-user-shield"></span></h1>
+                <div class="divider"></div>
+                <p>נהל משתמשים, מוצרים, והפק דוחות עבור העסק שלך</p>
+            </div>
+
+            <!-- Tabs Navigation -->
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="users">ניהול משתמשים</button>
+                <button class="tab-btn" data-tab="products">ניהול מוצרים</button>
+                <button class="tab-btn" data-tab="new-user">הוספת משתמש חדש</button>
+                <button class="tab-btn" data-tab="reports">דוחות</button>
+            </div> 
+
+            <!-- Tabs Content -->
+            <div class="tab-content" id="users">
+                <h2>ניהול משתמשים</h2>
+                <div class="search-box" style="margin-bottom: 1.5rem;">
+                    <input type="text" id="user-search" placeholder="חפש משתמש לפי שם...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>שם משתמש</th>
+                            <th>אימייל</th>
+                            <th>מספר פלאפון</th>
+                            <th>הרשאה</th>
+                            <th>פעולות</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-table"></tbody>
+                </table>
+            </div>
+
+            <div class="tab-content" id="products" style="display: none;">
+                <h2>ניהול מוצרים</h2>
+                <button class="btn btn-primary" id="add-product-btn">הוסף מוצר חדש</button>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>תמונה</th>
+                            <th>שם המוצר</th>
+                            <th>קטגוריה</th>
+                            <th>מחיר</th>
+                            <th>תיאור</th>
+                            <th>מלאי זמין</th>
+                            <th>פעולות</th>
+                        </tr>
+                    </thead>
+                    <tbody id="products-table"></tbody>
+                </table>
+            </div>
+
+            <div class="tab-content" id="new-user" style="display: none;">
+                <h2>הוספת משתמש חדש</h2>
+                <form id="new-user-form" class="admin-form">
+                    <div class="form-group">
+                        <label for="user-Fname">שם פרטי</label>
+                        <input type="text" id="user-Fname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-Lname">שם משפחה</label>
+                        <input type="text" id="user-Lname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-email">אימייל</label>
+                        <input type="email" id="user-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-phone">מספר פלאפון</label>
+                        <input type="tel" id="user-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-password">סיסמה</label>
+                        <input type="password" id="user-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-role">הרשאה</label>
+                        <select id="user-role">
+                            <option value="admin">מנהל</option>
+                            <option value="barber">ספר</option>
+                            <option value="customer">לקוח</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">צור משתמש</button>
+                </form>
+            </div>
+
+            <div class="tab-content" id="reports" style="display: none;">
+                <h2>דוחות</h2>
+                <p>צפה והפק דוחות מפורטים על פעילות המספרה.</p>
+                <a href="admin-reports.html" class="btn btn-primary">עבור לעמוד הדוחות</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>SCISSORS TIME</h3>
+                    <p>חווית תספורת מקצועית בסגנון אישי</p>
+                </div>
+                <div class="footer-links">
+                    <h4>ניווט מהיר</h4>
+                    <ul>
+                        <li><a href="index.html">דף הבית</a></li>
+                        <li><a href="appointments.html">הזמן תור</a></li>
+                        <li><a href="products.html">מוצרים</a></li>
+                        <li><a href="login.html">התחברות</a></li>
+                        <li><a href="register.html">הרשמה</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info">
+                    <h4>שעות פתיחה</h4>
+                    <ul>
+                        <li>א'-ה': 09:00-19:00</li>
+                        <li>ו' וערבי חג: עד שעה לפני כניסתם</li>
+                        <li>שבת: סגור</li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>צור קשר</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> מכללת פרס, רחובות</p>
+                    <p><i class="fas fa-phone"></i> 03-1234567</p>
+                    <p><i class="fas fa-envelope"></i> info@scissorstime.co.il</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 SCISSORS TIME. כל הזכויות שמורות.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/appointments-history.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

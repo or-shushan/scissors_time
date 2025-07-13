@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הרשמה - SCISSORS TIME</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!--קישור לאייקונים של VS-->
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container1">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">SCISSORS <span class="fas fa-scissors"></span> TIME</a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="about.html">אודות</a></li>
+                        <li><a href="index.html">דף הבית</a></li>
+                        <li><a href="appointments.html">הזמן תור</a></li>
+                        <li><a href="products.html">מוצרים</a></li>
+                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline">התחברות</a>
+                    <a href="register.html" class="btn btn-primary active">הרשמה</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Register Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-form-container">
+                    <h1>הרשמה</h1>
+                    <p class="auth-intro">צור חשבון חדש והתחל ליהנות מכל ההטבות שלנו.</p>
+                    
+                    <form id="register-form" class="auth-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">שם פרטי</label>
+                                <div class="input-icon-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="first-name" name="first-name" placeholder="הכנס שם פרטי" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">שם משפחה</label>
+                                <div class="input-icon-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="last-name" name="last-name" placeholder="הכנס שם משפחה" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-email">כתובת אימייל</label>
+                            <div class="input-icon-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="register-email" name="email" placeholder="הכנס את כתובת האימייל שלך" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">מספר טלפון</label>
+                            <div class="input-icon-wrapper">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="phone" name="phone" placeholder="הכנס את מספר הטלפון שלך" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-password">סיסמה</label>
+                            <div class="input-icon-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="register-password" name="password" placeholder="צור סיסמה" required>
+                                <button type="button" class="password-toggle">
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirm-password">אימות סיסמה</label>
+                            <div class="input-icon-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="confirm-password" name="confirm-password" placeholder="אמת את הסיסמה" required>
+                                <button type="button" class="password-toggle">
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">אני מסכים ל<a href="#">תנאי השימוש</a> ול<a href="#">מדיניות הפרטיות</a></label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">הירשם</button>
+                    </form>
+                                      
+                    <div class="auth-footer">
+                        כבר יש לך חשבון? <a href="login.html">התחבר כאן</a>
+                    </div>
+                </div>
+                
+                <div class="auth-image">
+                    <div class="auth-image-content">
+                        <h2>SCISSORS TIME</h2>
+                        <p>הירשם עכשיו כדי להזמין תורים בקלות, לראות את היסטוריית התספורות שלך ולקבל הנחות מיוחדות!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+   
+</body>
+</html>
+
+

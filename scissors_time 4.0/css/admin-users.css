@@ -1,0 +1,388 @@
+/* Admin Section */
+.admin-section {
+    padding: 140px 0 80px;
+    background-color: var(--light-color); /* Background color for admin section */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background circle */
+.admin-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 70%);
+    z-index: 0;
+}
+
+/* Tabs */
+.admin-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1; /* Ensures tabs appear above decorative background */
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: var(--light-gray-color); /* Default background for tab buttons */
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition); /* Smooth transition for hover/active */
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background-color: var(--primary-color); /* Active or hovered tab background */
+    color: white;
+}
+
+/* Table */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white; /* White background for tables */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 1rem;
+    text-align: center; /* Right-aligned text for Hebrew */
+    border-bottom: 1px solid var(--light-gray-color); /* Separator line */
+    
+}
+
+.admin-table th {
+    background-color: var(--light-color); /* Header background */
+    font-weight: 700;
+    }
+
+.admin-table select,
+.admin-table button {
+    padding: 0.5rem;
+    border-radius: var(--border-radius); /* General styling for buttons/select in table */
+        
+}
+
+/* Edit button in users table */
+.edit-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: var(--primary-color); /* Uses primary color (e.g., blue) */
+    color: white;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition); /* Smooth transition for hover */
+    font-weight: bold;
+}
+
+/* Hover effect for edit button */
+.edit-btn:hover {
+    background-color: #1650cc; /* Slightly darker shade of primary color */
+}
+
+/* Delete button in users table */
+.delete-btn {
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: var(--error-color); /* Uses error color (e.g., red) */
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition); /* Smooth transition for hover */
+    font-weight: bold;
+
+}
+
+/* Hover effect for delete button */
+.delete-btn:hover {
+    background-color: #b91c1c; /* Slightly darker shade of error color */
+}
+
+/* Inventory Input */
+.inventory-input {
+    width: 60px;
+    padding: 0.5rem;
+    border: 1px solid var(--light-gray-color); /* Border for inventory input */
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.inventory-input.low-inventory {
+    color: #dc3545; /* Red color for low inventory */
+    border-color: #dc3545;
+}
+
+/* Form */
+.admin-form {
+    background-color: white; /* White background for forms */
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--light-gray-color); /* Border for form inputs */
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color); /* Highlight border on focus */
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for modal */
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    min-height: 100vh; /* Ensure full viewport height coverage */
+    z-index: 1000; /* Ensure modal is above other content */
+}
+
+.modal-overlay.active {
+    opacity: 1; /* Fade-in effect for active modal */
+}
+
+.product-modal {
+    background-color: white; /* White background for modal content */
+    border-radius: var(--border-radius); /* Rounded corners */
+    width: 90%; /* Responsive width */
+    max-width: 600px; /* Maximum width */
+    max-height: 90vh; /* Limit modal height to 90% of viewport */
+    padding: 2rem; /* Inner padding */
+    margin: auto; /* Ensure centering within flex container */
+    overflow-y: auto; /* Enable vertical scrolling for long content */
+    transform: translateY(20px); /* Initial slide-down position */
+    transition: transform 0.3s ease; /* Smooth slide-in animation */
+    box-shadow: var(--box-shadow); /* Shadow for depth */
+}
+
+.modal-overlay.active .product-modal {
+    transform: translateY(0); /* Slide to center when active */
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    left: 1rem; /* Position close button in top-left corner */
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: none;
+    border-radius: 50%; /* Circular button */
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Pointer cursor for interactivity */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for close button */
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 768px) {
+    .product-modal {
+        width: 95%; /* Slightly wider on smaller screens */
+        max-height: 85vh; /* Reduced height for better fit */
+        padding: 1.5rem; /* Reduced padding */
+    }
+}
+
+@media (max-width: 576px) {
+    .product-modal {
+        width: 98%; /* Almost full width on very small screens */
+        max-height: 80vh; /* Further reduced height */
+        padding: 1rem; /* Minimal padding */
+    }
+}
+
+/* Buttons */
+.btn-error {
+    background-color: var(--error-color); /* Red background for error buttons */
+    color: white;
+    
+}
+.save-btn {
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    outline: none;
+
+  }
+  
+  .save-btn:hover {
+    background-color: var(--secondary-color);
+    cursor: pointer;
+
+  }
+/* Media Queries */
+@media (max-width: 768px) {
+    .admin-section {
+        padding: 120px 0 60px; /* Reduced padding for smaller screens */
+    }
+
+    .admin-tabs {
+        flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+    }
+
+    .admin-table {
+        font-size: 0.875rem; /* Smaller font for tables */
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 0.75rem; /* Reduced padding for table cells */
+    }
+
+    .product-modal {
+        width: 95%;
+        max-height: 85vh; /* Slightly smaller max height for smaller screens */
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .admin-table {
+        display: block;
+        overflow-x: auto; /* Horizontal scroll for small screens */
+    }
+
+    .product-modal {
+        width: 98%;
+        max-height: 80vh; /* Further reduce max height for very small screens */
+        padding: 1rem;
+    }
+}
+
+
+
+/* כפתור הוספת משתמש */
+.add-user-btn {
+  margin-bottom: 15px;
+  background-color: #3B82F6;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* מודל כללי */
+#add-user-modal.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+/* תוכן המודל */
+#add-user-modal.active {
+  display: flex;
+}
+
+#add-user-modal .product-modal {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#add-user-modal .modal-close {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+#add-user-modal .form-group {
+  margin-bottom: 15px;
+}
+
+#add-user-modal .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#add-user-modal .form-group input,
+#add-user-modal .form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+
+/* הגדרת ברירת מחדל מוסתרת למודל */
+#add-user-modal {
+  display: none;
+}
+
+#add-user-modal.active {
+  display: flex;
+}

@@ -1,0 +1,236 @@
+.reports-header {
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.reports-header h1 {
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+    font-size: 2rem;
+}
+
+.date-filter {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.date-filter label {
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.date-filter input[type="date"] {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.report-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.report-card:hover {
+    transform: translateY(-5px);
+}
+
+.report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.report-header h3 {
+    color: var(--dark-color);
+    margin: 0;
+}
+
+.report-header i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.report-content {
+    text-align: center;
+}
+
+.report-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.report-trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+}
+
+.report-trend.positive {
+    background-color: rgba(0, 200, 83, 0.1);
+    color: #00c853;
+}
+
+.report-trend.negative {
+    background-color: rgba(255, 82, 82, 0.1);
+    color: #ff5252;
+}
+
+.services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+
+.services-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.services-list li:last-child {
+    border-bottom: none;
+}
+
+.charts-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.chart-container {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.chart-container h3 {
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+    text-align: center;
+}
+
+.report-type-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.report-type-dropdown .btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.report-type-dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+    min-width: 200px;
+}
+
+
+
+.report-type-dropdown .dropdown-content select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.report-type-dropdown .dropdown-content select:focus {
+    outline: none;
+}
+
+.report-type-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.report-type-list li {
+    padding: 8px 15px; /* רווח פנימי מוקטן לשורות, אחיד */
+    position: relative; /* לאלמנטים עיצוביים כמו קו ימני */
+    transition: background-color 0.3s ease, color 0.3s ease; /* אנימציה חלקה */
+}
+
+.report-type-list li::before {
+    content: '';
+    position: absolute;
+    right: 0; /* קו בצד ימין */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background-color: var(--primary-color); /* קו ימני דק */
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.report-type-list li a {
+    display: block;
+    color: var(--dark-color); /* צבע טקסט רגיל */
+    text-decoration: none;
+    font-size: 1rem;
+    padding-left: 10px; /* רווח מהקו הימני */
+}
+
+.report-type-list li a:hover {
+    background-color: #e6f0fa; /* כחול בהיר */
+    color: #0052cc; /* כחול */
+}
+
+.report-type-list li:hover::before {
+    opacity: 1; /* הקו הימני נהיה בולט יותר בהover */
+}
+
+@media (max-width: 768px) {
+    .reports-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .charts-section {
+        grid-template-columns: 1fr;
+    }
+
+    .date-filter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .date-filter input[type="date"] {
+        width: 100%;
+    }
+
+    .report-type-dropdown .dropdown-content {
+        min-width: 100%;
+    }
+}
+
